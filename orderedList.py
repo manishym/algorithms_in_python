@@ -100,10 +100,7 @@ def main():
     l.add("Goobe")
     print l
     l.add("Nari")
-    # print l
     print l
-    # l.remove("haavu")
-    # print l
     l.add("cat")
     print l
     l.add("haavu")
