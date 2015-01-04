@@ -71,10 +71,23 @@ class UnorderedList():
         current = self.head
         while current != None:
             s += str(current.getData())
-            s += ", "
             current = current.getNext()
+            if(current):
+                s += ", "
         s += "]"
         return s
+
+    def append(self, obj):
+        current = self.head
+        if(current == None):
+            self.add(obj)
+            return
+        temp = Node(obj)
+        previous = None
+        while(current != None):
+            previous = current
+            current = current.getNext()
+        previous.setNext(temp)
 
 
 def main():
@@ -84,6 +97,7 @@ def main():
     l.add("dog")
     l.remove(3)
     l.add("Goobe")
+    l.append("Nari")
     print l
 
 
