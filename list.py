@@ -24,6 +24,7 @@ class UnorderedList():
     """A linked list implementation in python"""
     def __init__(self):
         self.head = None
+        self.tail = None
 
     def isEmpty(self):
         return self.head == None
@@ -32,6 +33,12 @@ class UnorderedList():
         temp = Node(obj)
         temp.setNext(self.head)
         self.head = temp
+        current = self.tail
+        if(current == None):
+            self.tail = self.head
+        while(current != None):
+            self.tail = current
+            current = current.getNext()
 
     def size(self):
         count = 0
@@ -64,6 +71,8 @@ class UnorderedList():
         if previous == None:
             self.head = self.head.getNext()
         previous.setNext(current.getNext())
+        if current == self.tail:
+            self.tail = previous
         return current
 
     def __repr__(self):
@@ -83,11 +92,8 @@ class UnorderedList():
             self.add(obj)
             return
         temp = Node(obj)
-        previous = None
-        while(current != None):
-            previous = current
-            current = current.getNext()
-        previous.setNext(temp)
+        self.tail.setNext(temp)
+        self.tail = self.tail.getNext()
 
 
 def main():
@@ -98,9 +104,11 @@ def main():
     l.remove(3)
     l.add("Goobe")
     l.append("Nari")
+    l.append("haavu")
+    l.remove("haavu")
+    l.append("cat")
     print l
 
 
 if __name__ == '__main__':
     main()
-
