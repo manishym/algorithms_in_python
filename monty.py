@@ -36,7 +36,7 @@ class Monty:
 def main():
     res = 0
     sw = 0
-    for i in range(100000):
+    for i in range(10000):
         m = Monty(random.randrange(3))
         m.reveal()
         res += m.result()
