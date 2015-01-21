@@ -2,21 +2,25 @@
 
 from fractions import gcd
 
+
 class Fraction:
     def __init__(self, top, bottom):
-        self.num = top/gcd(top, bottom)
-        self.den = bottom/gcd(top, bottom)
+        self.num = top / gcd(top, bottom)
+        self.den = bottom / gcd(top, bottom)
 
     def __str__(self):
         if self.num != self.den:
-            return str(self.num) + "/" + str(self.den) 
+            return str(self.num) + "/" + str(self.den)
         return str(1)
 
+<<<<<<< HEAD
     def __repr__(self):
         if self.num != self.den:
             return "Fraction" +": "+ str(self.num) + "/" + str(self.den) 
         return str(1)
 
+=======
+>>>>>>> ac7b333bf01f6f36df30f05aa2785e750c7d36b2
     def __add__(self, other):
         return Fraction(self.num * other.den + self.den * other.num, self.den * other.den)
 
@@ -27,16 +31,17 @@ class Fraction:
         return self.num * other.den == self.den * other.num
 
     def __div__(self, other):
-        return Fraction(self.num * other.den, other.num * self.den) 
+        return Fraction(self.num * other.den, other.num * self.den)
 
     def __mul__(self, other):
-        return Fraction(self.num * other.num, other.den * self.den) 
-    
+        return Fraction(self.num * other.num, other.den * self.den)
+
     def __gt__(self, other):
         return self.num * other.den > self.den * other.num
 
     def __lt__(self, other):
         return self.num * other.den < self.den * other.num
+<<<<<<< HEAD
 
 
 
@@ -48,3 +53,5 @@ def buildlist(range):
     return a
 
 
+=======
+>>>>>>> ac7b333bf01f6f36df30f05aa2785e750c7d36b2
