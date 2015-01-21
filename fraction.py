@@ -12,6 +12,10 @@ class Fraction:
             return str(self.num) + "/" + str(self.den) 
         return str(1)
 
+    def __repr__(self):
+        if self.num != self.den:
+            return "Fraction" +": "+ str(self.num) + "/" + str(self.den) 
+        return str(1)
 
     def __add__(self, other):
         return Fraction(self.num * other.den + self.den * other.num, self.den * other.den)
@@ -33,4 +37,14 @@ class Fraction:
 
     def __lt__(self, other):
         return self.num * other.den < self.den * other.num
+
+
+
+
+def buildlist(range):
+    a = []
+    for i in range(range):
+        a.append(i)
+    return a
+
 
