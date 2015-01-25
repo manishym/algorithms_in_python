@@ -7,12 +7,18 @@ class Vertex:
     def __init__(self, key):
         self.id = key
         self.connectedTo = {}
+        self.color = "white"
+        self.pred = None
+        self.distance = 0
 
     def addNeighbor(self, nbr, weight=0):
         self.connectedTo[nbr] = weight
 
+    def __str__(self):
+        return str(self.id) + " Connected to: " + str([i for i in self.connectedTo])
+
     def __repr__(self):
-        return str(self.id) + " Connected to: " + str ([i for i in self.connectedTo])
+        return "(Name: %s, Color: %s)" % (self.id, self.color)
 
     def getConnections(self):
         return self.connectedTo.keys()
@@ -22,6 +28,28 @@ class Vertex:
 
     def getWeight(self, nbr):
         return self.connectedTo[nbr].weight
+
+    def setColor(self, color):
+        self.color = color
+        return self.color
+
+    def setPred(self, pred):
+        self.pred = pred
+        return self.pred
+
+    def getColor(self):
+        return self.color
+
+    def getPred(self):
+        return self.pred
+
+    def getDistance(self):
+        return self.distance
+
+    def setDistance(self, d):
+        self.distance = d
+        return self.distance
+
 
 
 class Graph:
@@ -45,7 +73,7 @@ class Graph:
     def __contains__(self, key):
         return key in self.verticies
 
-    def addEdge(self, v1, v2, weight):
+    def addEdge(self, v1, v2, weight=0):
         if v1 not in self.vertList:
             nv = self.addVertex(v1)
         if v2 not in self.vertList:
